@@ -1,7 +1,7 @@
 //SELECTORS
 const amount = document.getElementById('amount');
 const rate = document.getElementById('rate');
-const valueDate = document.getElementById('value-date');
+const valueDate = document.getElementById('value-date');    //MM-DD-YYYY
 const tenor = document.getElementById('tenor');
 const maturityDate = document.getElementById('maturity-date');
 const grossInterest = document.getElementById('gross-interest');
@@ -26,22 +26,25 @@ function calculate() {
     let netInterestRateEl = rate.value - (rate.value * 0.1);
     let maturityAmountEl = (parseFloat(amountEl) + parseFloat(netInterestEl)).toFixed(2);
 
-    grossInterest.textContent = grossInterestEl;
-    wInterest.textContent = wInterestEl;
-    netInterest.textContent = netInterestEl;
+    grossInterest.textContent = parseFloat(grossInterestEl).toLocaleString("en-US");
+    wInterest.textContent = parseFloat(wInterestEl).toLocaleString("en-US");
+    netInterest.textContent = parseFloat(netInterestEl).toLocaleString("en-US");
     netInterestRate.textContent = netInterestRateEl;
-    maturityAmount.textContent = maturityAmountEl;
+    maturityAmount.textContent = parseFloat(maturityAmountEl).toLocaleString("en-US");
 
     Date.prototype.addDays = function (days) {
         const date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
         return date;
     };
+
     
-    const date = new Date(valueDateEl);     //Get input date; format: YYYY-M-D
+    const date = new Date(valueDateEl);
     const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
 
     let maturityDateEl = date.addDays(parseInt(tenorEl)).toLocaleDateString(options);
+    console.log(maturityDateEl)
+
     maturityDate.textContent = maturityDateEl;
 }
 
