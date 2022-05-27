@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joshua Chinwendu">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,91 +15,112 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="text-center">
-            <h1>Investment Calculator</h1>
-        </div>
 
-        <div class="row justify-content-md-center">
-            <div class="col col-lg-2">
-
+    <section class="main">
+        <div class="container mt-5">
+            <div class="text-center">
+                <nav class="nav-justified">
+                    <img src="/img/logo.jpg" alt="Capital Bancorp">
+                </nav>
+                <hr>
+                <h1>Investment Calculator</h1>
             </div>
-            <div class="col-md-auto">
-                <div class="card">
-                    <div class="card-body">
-
-                        <!-- input group -->
-
-                        <div class="input-group input-group-sm mt-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Amount :</span>
-                            </div>
-                            <input type="text" class="form-control" id="amount" placeholder="Enter Amount..">
-                        </div>
-
-                        <div class="input-group input-group-sm mt-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">Value Date:</span>
-                            </div>
-                            <input type="text" class="form-control" id="value-date" placeholder="M-D-YYYY">
-                        </div>
-
-                        <div class="input-group input-group-sm mt-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Tenor :</span>
-                            </div>
-                            <input type="text" class="form-control" id="tenor" placeholder="Enter Tenor..."><span class="input-group-text alert-light">Days</span>
-                        </div>
-
-                        <div class="input-group input-group-sm mt-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Maturity Date :<span id="maturity-date" style="color: rgb(15, 146, 15)"></span></span>
-                            </div>
-                        </div>
-
-                        
-
-                        <div class="input-group input-group-sm mt-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Rate (% P.A) :</span>
-                            </div>
-                            <input type="text" class="form-control" id="rate"
-                                placeholder="Enter the rate..."><span class="input-group-text alert-light">%</span>
-                        </div>
-
-                        <button type="button" class="btn btn-primary mt-3 mb-2" id="calculate">Calculate</button>
-
     
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-2">
+    
+                </div>
+                <div class="col-md-auto">
+                    <div class="card">
+                        <div class="card-body">
+    
+                            <!-- input group -->
+                            <div class="input-group input-group-sm mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Amount :</span>
+                                </div>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter Amount..">
+                            </div>
+    
+                            <div class="input-group input-group-sm mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Value Date:</span>
+                                </div>
+                                <input type="text" class="form-control" id="value-date" placeholder="M-D-YYYY">
+                            </div>
+    
+                            <div class="input-group input-group-sm mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Tenor :</span>
+                                </div>
+                                <input type="text" class="form-control" id="tenor" placeholder="Enter Tenor..."><span class="input-group-text alert-light">Days</span>
+                            </div>
+    
+                            <div class="input-group input-group-sm mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Maturity Date :<span id="maturity-date" style="color: rgb(15, 146, 15)"></span></span>
+                                </div>
+                            </div>
+    
+                            
+    
+                            <div class="input-group input-group-sm mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Rate (% P.A) :</span>
+                                </div>
+                                <input type="text" class="form-control" id="rate"
+                                    placeholder="Enter the rate..."><span class="input-group-text alert-light">%</span>
+                            </div>
+    
+                            <button type="button" class="btn btn-primary mt-3 mb-2" id="calculate">Calculate</button>
 
-                        <hr>
-
-                        <div id="results">
-                            <h6>Gross Interest: </h6>
-                            <h6 id="gross-interest" style="color: green"></h6>
-
-                            <h6>WTH on Interest: </h6>
-                            <h6 id="W-interest" style="color: rgb(15, 146, 15)"></h6>
-
-                            <h6>Net Interest: </h6>
-                            <h6 id="net-interest" style="color: rgb(15, 146, 15)"></h6>
-
-                            <h6>Net Interest Rate: </h6>
-                            <h6 id="net-interest-rate" style="color: rgb(15, 146, 15)"></h6>
-
-                            <h6>Maturity Amount: </h6>
-                            <h6 id="maturity-amount" style="color: rgb(15, 146, 15)"></h6>
-
+                            <button type="button" value="Reload Page" onClick="document.location.reload(true)" class="btn btn-secondary mt-3 mb-2" id="clear">Clear</button>
+    
+                            <hr>
+    
+                            <div id="results">
+                                <div>
+                                    <h6>Gross Interest: </h6>
+                                    <span class="d-inline-flex">&#8358;</span>
+                                    <h6 id="gross-interest" style="color: green" class="d-inline-flex"></h6>
+                                </div>
+    
+                                <div>
+                                    <h6>WTH on Interest: </h6>
+                                    <span class="d-inline-flex">&#8358;</span>
+                                    <h6 id="W-interest" style="color: green" class="d-inline-flex"></h6>
+                                </div>
+    
+                                <div>
+                                    <h6>Net Interest: </h6>
+                                    <span class="d-inline-flex">&#8358;</span>
+                                    <h6 id="net-interest" style="color: green" class="d-inline-flex"></h6>
+                                </div>
+    
+                                <div>
+                                    <h6>Net Interest Rate: </h6>
+                                    <h6 id="net-interest-rate" style="color: green" class="d-inline-flex"></h6><span class="d-inline-flex">%</span>
+                                </div>
+    
+                                <div>
+                                    <h6>Maturity Amount: </h6>
+                                    <span class="d-inline-flex">&#8358;</span>
+                                    <h6 id="maturity-amount" style="color: green" class="d-inline-flex"></h6>
+                                </div>
+    
+                            </div>
                         </div>
                     </div>
                 </div>
+    
+                <div class="col col-lg-2">
+    
+                </div>
             </div>
-
-            <div class="col col-lg-2">
-
-            </div>
+    
         </div>
-
-    </div>
+    </section>
+    
 
     <script src="script.js"></script>
 </body>

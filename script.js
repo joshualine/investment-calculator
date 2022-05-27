@@ -11,13 +11,17 @@ const netInterestRate = document.getElementById('net-interest-rate');
 const interestRate = document.getElementById('interest-rate');
 const maturityAmount = document.getElementById('maturity-amount');
 const calculateBtn = document.getElementById('calculate');
-const form = document.getElementById('formCheck');
 
 //FUNCTIONS
 function calculate() {
     let amountEl = amount.value;
     let rateEl = rate.value/100;
     let valueDateEl = valueDate.value;
+
+    // console.log(valueDateEl)
+    // let valueDateElSplit = valueDateEl.split("-");
+    // console.log(valueDateElSplit)
+
     let tenorEl = tenor.value;
 
     let grossInterestEl = ((amountEl*rateEl*tenorEl)/365).toFixed(2);
