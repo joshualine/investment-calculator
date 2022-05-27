@@ -18,10 +18,6 @@ function calculate() {
     let rateEl = rate.value/100;
     let valueDateEl = valueDate.value;
 
-    // console.log(valueDateEl)
-    // let valueDateElSplit = valueDateEl.split("-");
-    // console.log(valueDateElSplit)
-
     let tenorEl = tenor.value;
 
     let grossInterestEl = ((amountEl*rateEl*tenorEl)/365).toFixed(2);
@@ -41,15 +37,19 @@ function calculate() {
         date.setDate(date.getDate() + days);
         return date;
     };
-
     
     const date = new Date(valueDateEl);
     const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
 
     let maturityDateEl = date.addDays(parseInt(tenorEl)).toLocaleDateString(options);
-    console.log(maturityDateEl)
 
-    maturityDate.textContent = maturityDateEl;
+    const outputDate = maturityDateEl.split('/'); //Split the date & get their indexes
+    let month = outputDate[0]
+    let day = outputDate[1]
+    let year = outputDate[2]
+    const finalDateOutput = `${day}-${month}-${year}`; // format the date to output DD/MM/YYYY
+
+    maturityDate.textContent = finalDateOutput;
 }
 
 
