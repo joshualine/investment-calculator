@@ -14,7 +14,6 @@ const calculateBtn = document.getElementById('calculate');
 let container = document.getElementsByClassName("formField")[0]; //select form field
 
 const first = document.getElementById('first');
-// const first = document.getElementById('checkForm');
 const second = document.getElementById('second');
 const third = document.getElementById('third');
 
@@ -32,6 +31,7 @@ function updateTextView(_obj) {
         _obj.val(num.toLocaleString());
     }
 }
+
 function getNumber(_str) {
     var arr = _str.split('');
     var out = new Array();
